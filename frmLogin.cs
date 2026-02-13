@@ -33,8 +33,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
             if (txtbxUserName.Text == txtbxUserName.Tag.ToString() && txtbxPassWord.Text == txtbxPassWord.Tag.ToString())
             {
-                Form frm1 = new frmOperations();
+                Form frm1 = new frmOperations(txtbxUserName.Text);
                 frm1.ShowDialog();
+
+
+                // After Entering the username and password 
+                // the fileds will be clean in case of logout case
+
+                txtbxUserName.Clear();
+                txtbxPassWord.Clear();
             }
             else
             {

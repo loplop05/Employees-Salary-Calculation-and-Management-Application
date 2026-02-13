@@ -10,9 +10,35 @@ namespace Employees_Salary_Calculation_and_Management_Application
 {
     public partial class frmOperations : Form
     {
-        public frmOperations()
+        private string _userName;
+        public frmOperations(string userName)
         {
             InitializeComponent();
+            _userName = userName;
         }
+
+        private void lblWelcomeMessage_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void frmOperations_Load(object sender, EventArgs e)
+        {
+            lblWelcomeMessage.Text = "Welcome " + _userName;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            
+            if(MessageBox.Show("Are You Sure For Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+
+        // Log Out Button
+
     }
 }

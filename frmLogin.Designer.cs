@@ -44,14 +44,13 @@
             LoginBtn.Cursor = Cursors.Hand;
             LoginBtn.FlatStyle = FlatStyle.Popup;
             LoginBtn.Font = new Font("Tw Cen MT Condensed", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginBtn.Location = new Point(420, 453);
+            LoginBtn.Location = new Point(412, 450);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(251, 83);
+            LoginBtn.Size = new Size(259, 87);
             LoginBtn.TabIndex = 2;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = true;
             LoginBtn.Click += LoginBtn_Click;
-          
             // 
             // txtbxPassWord
             // 
@@ -61,7 +60,6 @@
             txtbxPassWord.Size = new Size(259, 27);
             txtbxPassWord.TabIndex = 1;
             txtbxPassWord.Tag = "0000";
-           
             // 
             // txtbxUserName
             // 
@@ -72,7 +70,6 @@
             txtbxUserName.Size = new Size(259, 27);
             txtbxUserName.TabIndex = 0;
             txtbxUserName.Tag = "admin";
-          
             // 
             // label3
             // 
@@ -125,7 +122,6 @@
             IsMdiContainer = true;
             Name = "frmLogin";
             Text = "frmLogin";
-          
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -134,11 +130,11 @@
         #endregion
 
         private Button LoginBtn;
-        private TextBox txtbxPassWord;
-        private TextBox txtbxUserName;
         private Label label3;
         private Label label2;
         private Label label1;
         private ErrorProvider errorProvider1;
+        public TextBox txtbxPassWord;
+        public TextBox txtbxUserName;
     }
 }
