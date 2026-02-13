@@ -66,6 +66,7 @@
             btnEmployeeManagement.TabIndex = 0;
             btnEmployeeManagement.Text = "Employee Management";
             btnEmployeeManagement.UseVisualStyleBackColor = true;
+            btnEmployeeManagement.Click += btnEmployeeManagement_Click;
             // 
             // btnSalaryCalculation
             // 

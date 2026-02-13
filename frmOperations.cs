@@ -28,17 +28,23 @@ namespace Employees_Salary_Calculation_and_Management_Application
             lblWelcomeMessage.Text = "Welcome " + _userName;
         }
 
+
+
+
+        // Log Out Button
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            
-            if(MessageBox.Show("Are You Sure For Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+
+            if (MessageBox.Show("Are You Sure For Logout ?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 this.Close();
             }
         }
 
-
-        // Log Out Button
-
+        private void btnEmployeeManagement_Click(object sender, EventArgs e)
+        {
+            Form EmployeesForm = new frmEmployeeManagement();
+            EmployeesForm.ShowDialog();
+        }
     }
 }
