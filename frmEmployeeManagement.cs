@@ -50,9 +50,6 @@ namespace Employees_Salary_Calculation_and_Management_Application
             return false;
         }
 
-
-
-
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmAddEmployee addForm = new frmAddEmployee();
@@ -77,16 +74,6 @@ namespace Employees_Salary_Calculation_and_Management_Application
                 FillListView();
             }
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -134,6 +121,22 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             FillRandomEmployees(10);
         }
+
+        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        {
+            Form frm1 = new frmDeleteEmployee();
+            frm1.ShowDialog();
+
+        }
+
+        private void btnSearchEmployee_Click(object sender, EventArgs e)
+        {
+            Form frm1 = new frmSearchEmployee(lvEmployees);
+            frm1.ShowDialog();
+
+
+        }
+
     }
 }
 

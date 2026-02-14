@@ -65,6 +65,8 @@ namespace Employees_Salary_Calculation_and_Management_Application
             }
         }
 
+
+
         private void btnSaveEmployeeInfo_Click(object sender, EventArgs e)
         {
             // validate inputs
@@ -78,5 +80,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
             this.DialogResult = DialogResult.OK; // signals parent
             this.Close(); // close AddEmployee form
         }
+
+
+
+
+
+
+
+
+
+
     }
 }

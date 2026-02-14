@@ -109,6 +109,7 @@
             btnRemoveEmployee.TabIndex = 2;
             btnRemoveEmployee.Text = "Remove Employee";
             btnRemoveEmployee.UseVisualStyleBackColor = true;
+            btnRemoveEmployee.Click += btnRemoveEmployee_Click;
             // 
             // btnSearchEmployee
             // 
@@ -118,6 +119,7 @@
             btnSearchEmployee.TabIndex = 3;
             btnSearchEmployee.Text = "Search Employee";
             btnSearchEmployee.UseVisualStyleBackColor = true;
+            btnSearchEmployee.Click += btnSearchEmployee_Click;
             // 
             // fillEmps
             // 
@@ -151,8 +153,6 @@
         }
 
         #endregion
-
-        private ListView lvEmployees;
         private ColumnHeader colID;
         private ColumnHeader colName;
         private ColumnHeader colPosition;
@@ -164,5 +164,6 @@
         private Button fillEmps;
         private ColumnHeader colDateHiring;
         private ErrorProvider errorProvider1;
+        public ListView lvEmployees;
     }
 }
