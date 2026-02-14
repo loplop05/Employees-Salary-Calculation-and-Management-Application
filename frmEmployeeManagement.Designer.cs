@@ -33,22 +33,23 @@
             colName = new ColumnHeader();
             colPosition = new ColumnHeader();
             colBaseSalary = new ColumnHeader();
-            colDateAdded = new ColumnHeader();
             colDepartment = new ColumnHeader();
             btnAddEmployee = new Button();
             btnRemoveEmployee = new Button();
             btnSearchEmployee = new Button();
+            fillEmps = new Button();
+            colDateHiring = new ColumnHeader();
             SuspendLayout();
             // 
             // lvEmployees
             // 
-            lvEmployees.Columns.AddRange(new ColumnHeader[] { colID, colName, colPosition, colBaseSalary, colDateAdded, colDepartment });
-            lvEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lvEmployees.Columns.AddRange(new ColumnHeader[] { colID, colName, colPosition, colBaseSalary, colDepartment, colDateHiring });
+            lvEmployees.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lvEmployees.FullRowSelect = true;
             lvEmployees.GridLines = true;
             lvEmployees.Location = new Point(12, 105);
             lvEmployees.Name = "lvEmployees";
-            lvEmployees.Size = new Size(846, 452);
+            lvEmployees.Size = new Size(877, 452);
             lvEmployees.TabIndex = 0;
             lvEmployees.UseCompatibleStateImageBehavior = false;
             lvEmployees.View = View.Details;
@@ -68,7 +69,7 @@
             // 
             colPosition.Text = "Position";
             colPosition.TextAlign = HorizontalAlignment.Center;
-            colPosition.Width = 120;
+            colPosition.Width = 150;
             // 
             // colBaseSalary
             // 
@@ -76,32 +77,25 @@
             colBaseSalary.TextAlign = HorizontalAlignment.Center;
             colBaseSalary.Width = 120;
             // 
-            // colDateAdded
-            // 
-            colDateAdded.DisplayIndex = 5;
-            colDateAdded.Text = "Hiring Date";
-            colDateAdded.TextAlign = HorizontalAlignment.Center;
-            colDateAdded.Width = 200;
-            // 
             // colDepartment
             // 
-            colDepartment.DisplayIndex = 4;
             colDepartment.Text = "Department";
             colDepartment.TextAlign = HorizontalAlignment.Center;
             colDepartment.Width = 160;
             // 
             // btnAddEmployee
             // 
-            btnAddEmployee.Location = new Point(885, 105);
+            btnAddEmployee.Location = new Point(913, 105);
             btnAddEmployee.Name = "btnAddEmployee";
             btnAddEmployee.Size = new Size(232, 92);
             btnAddEmployee.TabIndex = 1;
             btnAddEmployee.Text = "Add Employee";
             btnAddEmployee.UseVisualStyleBackColor = true;
+            btnAddEmployee.Click += btnAddEmployee_Click;
             // 
             // btnRemoveEmployee
             // 
-            btnRemoveEmployee.Location = new Point(885, 275);
+            btnRemoveEmployee.Location = new Point(913, 273);
             btnRemoveEmployee.Name = "btnRemoveEmployee";
             btnRemoveEmployee.Size = new Size(233, 98);
             btnRemoveEmployee.TabIndex = 2;
@@ -110,18 +104,34 @@
             // 
             // btnSearchEmployee
             // 
-            btnSearchEmployee.Location = new Point(885, 450);
+            btnSearchEmployee.Location = new Point(913, 447);
             btnSearchEmployee.Name = "btnSearchEmployee";
             btnSearchEmployee.Size = new Size(233, 98);
             btnSearchEmployee.TabIndex = 3;
             btnSearchEmployee.Text = "Search Employee";
             btnSearchEmployee.UseVisualStyleBackColor = true;
             // 
+            // fillEmps
+            // 
+            fillEmps.Location = new Point(913, 583);
+            fillEmps.Name = "fillEmps";
+            fillEmps.Size = new Size(233, 50);
+            fillEmps.TabIndex = 4;
+            fillEmps.Text = "Fill Employee";
+            fillEmps.UseVisualStyleBackColor = true;
+            fillEmps.Click += fillEmps_Click;
+            // 
+            // colDateHiring
+            // 
+            colDateHiring.Text = "Date Hired";
+            colDateHiring.Width = 140;
+            // 
             // frmEmployeeManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1189, 676);
+            Controls.Add(fillEmps);
             Controls.Add(btnSearchEmployee);
             Controls.Add(btnRemoveEmployee);
             Controls.Add(btnAddEmployee);
@@ -139,10 +149,11 @@
         private ColumnHeader colName;
         private ColumnHeader colPosition;
         private ColumnHeader colBaseSalary;
-        private ColumnHeader colDateAdded;
         private ColumnHeader colDepartment;
         private Button btnAddEmployee;
         private Button btnRemoveEmployee;
         private Button btnSearchEmployee;
+        private Button fillEmps;
+        private ColumnHeader colDateHiring;
     }
 }
