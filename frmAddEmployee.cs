@@ -74,6 +74,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
                 return;
             }
 
+
             this.DialogResult = DialogResult.OK; // signals parent
             this.Close(); // close AddEmployee form
         }

@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lvEmployees = new ListView();
             colID = new ColumnHeader();
             colName = new ColumnHeader();
             colPosition = new ColumnHeader();
             colBaseSalary = new ColumnHeader();
             colDepartment = new ColumnHeader();
+            colDateHiring = new ColumnHeader();
             btnAddEmployee = new Button();
             btnRemoveEmployee = new Button();
             btnSearchEmployee = new Button();
             fillEmps = new Button();
-            colDateHiring = new ColumnHeader();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // lvEmployees
@@ -83,6 +86,11 @@
             colDepartment.TextAlign = HorizontalAlignment.Center;
             colDepartment.Width = 160;
             // 
+            // colDateHiring
+            // 
+            colDateHiring.Text = "Date Hired";
+            colDateHiring.Width = 140;
+            // 
             // btnAddEmployee
             // 
             btnAddEmployee.Location = new Point(913, 105);
@@ -121,10 +129,9 @@
             fillEmps.UseVisualStyleBackColor = true;
             fillEmps.Click += fillEmps_Click;
             // 
-            // colDateHiring
+            // errorProvider1
             // 
-            colDateHiring.Text = "Date Hired";
-            colDateHiring.Width = 140;
+            errorProvider1.ContainerControl = this;
             // 
             // frmEmployeeManagement
             // 
@@ -139,6 +146,7 @@
             Name = "frmEmployeeManagement";
             Text = "frmEmployeeManagement";
             Load += frmEmployeeManagement_Load;
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -155,5 +163,6 @@
         private Button btnSearchEmployee;
         private Button fillEmps;
         private ColumnHeader colDateHiring;
+        private ErrorProvider errorProvider1;
     }
 }

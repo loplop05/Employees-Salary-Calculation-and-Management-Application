@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,6 +42,8 @@
             textBoxDepartment = new TextBox();
             btnSaveEmployeeInfo = new Button();
             btnCancel = new Button();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -171,6 +174,10 @@
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // frmAddEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -191,6 +198,7 @@
             Controls.Add(label1);
             Name = "frmAddEmployee";
             Text = "frmAddEmployee";
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,5 +218,6 @@
         private Button btnSaveEmployeeInfo;
         private Button btnCancel;
         public TextBox txtBoxBaseSalary;
+        private ErrorProvider errorProvider1;
     }
 }

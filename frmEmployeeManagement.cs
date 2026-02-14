@@ -33,25 +33,49 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         }
 
+
+
+
+
+
+
+
+        bool IsIDExist(string id)
+        {
+            foreach (ListViewItem item in lvEmployees.Items)
+            {
+                if (item.Text == id)   // Text = first column (ID)
+                    return true;
+            }
+            return false;
+        }
+
+
+
+
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmAddEmployee addForm = new frmAddEmployee();
 
-            if (addForm.ShowDialog() == DialogResult.OK) // Wait for Save
+            if (addForm.ShowDialog() == DialogResult.OK)
             {
+                if (IsIDExist(addForm.textBoxID.Text.Trim()))
+                {
+                    MessageBox.Show("ID ALREADY EXISITS", "Error");
+                    return;
+                }
+
                 ListViewItem item = new ListViewItem(addForm.textBoxID.Text);
                 item.SubItems.Add(addForm.textBoxName.Text);
-                item.SubItems.Add(addForm.cbPosition.Text); // SelectedItem or Text
+                item.SubItems.Add(addForm.cbPosition.Text);
                 item.SubItems.Add(addForm.txtBoxBaseSalary.Text);
                 item.SubItems.Add(addForm.textBoxDepartment.Text);
                 item.SubItems.Add(DateTime.Now.ToShortDateString());
 
                 lvEmployees.Items.Add(item);
 
-
                 FillListView();
             }
-
         }
 
 
