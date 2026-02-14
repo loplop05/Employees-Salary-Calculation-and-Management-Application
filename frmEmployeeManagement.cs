@@ -68,48 +68,48 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
 
 
-        //private void FillRandomEmployees(int count)
-        //{
-        //    string[] names = { "John", "Jane", "Ali", "Sara", "Mike", "Lina" };
-        //    string[] positions = { "Cashier", "Sales", "Call Center", "Accountant", "Showroom Manager" };
-        //    string[] departments = { "Operations", "HQ Office","Floor" };
-        //    Random rnd = new Random();
+        private void FillRandomEmployees(int count)
+        {
+            string[] names = { "John", "Jane", "Ali", "Sara", "Mike", "Lina" };
+            string[] positions = { "Cashier", "Sales", "Call Center", "Accountant", "Showroom Manager" };
+            string[] departments = { "Operations", "HQ Office", "Floor" };
+            Random rnd = new Random();
 
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        ListViewItem item = new ListViewItem((100 + i).ToString()); // Random ID
-        //        item.SubItems.Add(names[rnd.Next(names.Length)]);
-        //        string pos = positions[rnd.Next(positions.Length)];
-        //        item.SubItems.Add(pos);
+            for (int i = 0; i < count; i++)
+            {
+                ListViewItem item = new ListViewItem((100 + i).ToString()); // Random ID
+                item.SubItems.Add(names[rnd.Next(names.Length)]);
+                string pos = positions[rnd.Next(positions.Length)];
+                item.SubItems.Add(pos);
 
-        //        // Set base salary and department according to position
-        //        string salary = "300";
-        //        string dept = "Operations";
-        //        switch (pos.ToLower())
-        //        {
-        //            case "cashier":
-        //            case "call center":
-        //            case "sales":
-        //                salary = "300"; dept = "Operations"; break;
-        //            case "accountant":
-        //                salary = "600"; dept = "HQ Office"; break;
-        //            case "showroom manager":
-        //                salary = "1000"; dept = "Operations"; break;
-        //        }
-        //        item.SubItems.Add(salary);
-        //        item.SubItems.Add(dept);
-        //        item.SubItems.Add(DateTime.Now.AddDays(-rnd.Next(1000)).ToShortDateString()); // Random hiring date
+                // Set base salary and department according to position
+                string salary = "300";
+                string dept = "Operations";
+                switch (pos.ToLower())
+                {
+                    case "cashier":
+                    case "call center":
+                    case "sales":
+                        salary = "300"; dept = "Operations"; break;
+                    case "accountant":
+                        salary = "600"; dept = "HQ Office"; break;
+                    case "showroom manager":
+                        salary = "1000"; dept = "Operations"; break;
+                }
+                item.SubItems.Add(salary);
+                item.SubItems.Add(dept);
+                item.SubItems.Add(DateTime.Now.AddDays(-rnd.Next(1000)).ToShortDateString()); // Random hiring date
 
-        //        lvEmployees.Items.Add(item);
-        //    }
+                lvEmployees.Items.Add(item);
+            }
 
-        //    FillListView(); // Optional: apply alternating row colors
-        //}
+            FillListView(); // Optional: apply alternating row colors
+        }
 
-        //private void fillEmps_Click(object sender, EventArgs e)
-        //{
-        //    FillRandomEmployees(10);
-        //}
+        private void fillEmps_Click(object sender, EventArgs e)
+        {
+            FillRandomEmployees(10);
+        }
     }
 }
 
