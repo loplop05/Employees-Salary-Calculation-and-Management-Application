@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            txtBoxDelete = new TextBox();
+            textBoxIDforDelete = new TextBox();
+            btnSearchForDelete = new Button();
             SuspendLayout();
             // 
             // label1
@@ -42,19 +43,31 @@
             label1.TabIndex = 0;
             label1.Text = "Enter Employee ID";
             // 
-            // txtBoxDelete
+            // textBoxIDforDelete
             // 
-            txtBoxDelete.Location = new Point(261, 137);
-            txtBoxDelete.Name = "txtBoxDelete";
-            txtBoxDelete.Size = new Size(223, 27);
-            txtBoxDelete.TabIndex = 1;
+            textBoxIDforDelete.Location = new Point(261, 137);
+            textBoxIDforDelete.Name = "textBoxIDforDelete";
+            textBoxIDforDelete.Size = new Size(223, 27);
+            textBoxIDforDelete.TabIndex = 1;
+            textBoxIDforDelete.TextChanged += textBoxIDforDelete_TextChanged;
+            // 
+            // btnSearchForDelete
+            // 
+            btnSearchForDelete.Location = new Point(323, 197);
+            btnSearchForDelete.Name = "btnSearchForDelete";
+            btnSearchForDelete.Size = new Size(94, 29);
+            btnSearchForDelete.TabIndex = 2;
+            btnSearchForDelete.Text = "Search";
+            btnSearchForDelete.UseVisualStyleBackColor = true;
+            btnSearchForDelete.Click += btnSearchForDelete_Click;
             // 
             // frmDeleteEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtBoxDelete);
+            Controls.Add(btnSearchForDelete);
+            Controls.Add(textBoxIDforDelete);
             Controls.Add(label1);
             Name = "frmDeleteEmployee";
             Text = "frmDeleteEmployee";
@@ -66,6 +79,7 @@
         #endregion
 
         private Label label1;
-        private TextBox txtBoxDelete;
+        private TextBox textBoxIDforDelete;
+        private Button btnSearchForDelete;
     }
 }

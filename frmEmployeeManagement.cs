@@ -124,7 +124,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            Form frm1 = new frmDeleteEmployee();
+            Form frm1 = new frmDeleteEmployee(lvEmployees);
             frm1.ShowDialog();
 
         }
