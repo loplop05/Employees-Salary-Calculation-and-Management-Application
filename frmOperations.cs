@@ -46,5 +46,10 @@ namespace Employees_Salary_Calculation_and_Management_Application
             Form EmployeesForm = new frmEmployeeManagement();
             EmployeesForm.ShowDialog();
         }
+
+        private void btnSalaryCalculation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

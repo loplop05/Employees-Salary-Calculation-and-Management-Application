@@ -77,6 +77,7 @@
             btnSalaryCalculation.TabIndex = 1;
             btnSalaryCalculation.Text = "Salary Calculation";
             btnSalaryCalculation.UseVisualStyleBackColor = true;
+            btnSalaryCalculation.Click += btnSalaryCalculation_Click;
             // 
             // btnShowEmployees
             // 

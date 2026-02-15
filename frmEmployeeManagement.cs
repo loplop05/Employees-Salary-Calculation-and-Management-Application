@@ -17,7 +17,6 @@ namespace Employees_Salary_Calculation_and_Management_Application
         public frmEmployeeManagement()
         {
             InitializeComponent();
-
         }
 
         private void frmEmployeeManagement_Load(object sender, EventArgs e)
