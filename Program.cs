@@ -11,7 +11,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmEmployeeManagement());
+            Application.Run(new frmLogin());
         }
     }
 }

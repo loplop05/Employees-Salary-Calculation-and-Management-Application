@@ -137,6 +137,10 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         }
 
+        private void btnBackToMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

@@ -41,6 +41,7 @@
             btnSearchEmployee = new Button();
             fillEmps = new Button();
             errorProvider1 = new ErrorProvider(components);
+            btnBackToMenu = new Button();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -135,11 +136,22 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btnBackToMenu
+            // 
+            btnBackToMenu.Location = new Point(12, 33);
+            btnBackToMenu.Name = "btnBackToMenu";
+            btnBackToMenu.Size = new Size(233, 50);
+            btnBackToMenu.TabIndex = 5;
+            btnBackToMenu.Text = "Back To Menu";
+            btnBackToMenu.UseVisualStyleBackColor = true;
+            btnBackToMenu.Click += btnBackToMenu_Click;
+            // 
             // frmEmployeeManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1189, 676);
+            Controls.Add(btnBackToMenu);
             Controls.Add(fillEmps);
             Controls.Add(btnSearchEmployee);
             Controls.Add(btnRemoveEmployee);
@@ -165,5 +177,6 @@
         private ColumnHeader colDateHiring;
         private ErrorProvider errorProvider1;
         public ListView lvEmployees;
+        private Button btnBackToMenu;
     }
 }
