@@ -22,46 +22,29 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void cbPosition_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbPosition.SelectedItem == null) return;
+            Dictionary<string, (string salary, string dept)> positions =
+       new Dictionary<string, (string, string)>()
+   {
+    {"senior sales supervisor", ("500","Operations")},
+    {"junior sales supervisor", ("400","Operations")},
+    {"sales", ("300","Operations")},
+    {"customer service", ("300","Operations")},
+    {"call center", ("300","Operations")},
+    {"cashier", ("300","Operations")},
+    {"accountant", ("600","HQ Office")},
+    {"showroom manager", ("1000","Operations")}
+   };
 
-            string selected = cbPosition.SelectedItem.ToString().ToLower();
+            string selected = cbPosition.SelectedItem.ToString().Trim().ToLower();
 
-            switch (selected)
+            if (positions.ContainsKey(selected))
             {
-                case "senior sales supervisor":
-                    txtBoxBaseSalary.Text = "500";
-                    textBoxDepartment.Text = "Operations";
-                    break;
-
-                case "junior sales supervisor":
-                    txtBoxBaseSalary.Text = "400";
-                    textBoxDepartment.Text = "Operations";
-                    break;
-
-                case "sales":
-                case "customer service":
-                case "Call Center":
-                case "cashier":
-                    txtBoxBaseSalary.Text = "300";
-                    textBoxDepartment.Text = "Operations";
-                    break;
-
-
-                case "acountant":
-                    txtBoxBaseSalary.Text = "600";
-                    textBoxDepartment.Text = "HQ Office";
-                    break;
-
-
-                case "showroom manager":
-                    txtBoxBaseSalary.Text = "1000";
-                    textBoxDepartment.Text = "Operations";
-                    break;
-
-
-                default:
-                    MessageBox.Show("Other position selected!");
-                    break;
+                txtBoxBaseSalary.Text = positions[selected].salary;
+                textBoxDepartment.Text = positions[selected].dept;
+            }
+            else
+            {
+                MessageBox.Show("Other position selected!");
             }
         }
 
@@ -81,14 +64,9 @@ namespace Employees_Salary_Calculation_and_Management_Application
             this.Close(); // close AddEmployee form
         }
 
-
-
-
-
-
-
-
-
-
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
