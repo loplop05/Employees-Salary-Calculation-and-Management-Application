@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+using System.Text.Json;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Employees_Salary_Calculation_and_Management_Application
@@ -19,6 +22,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void frmEmployeeManagement_Load(object sender, EventArgs e)
         {
+            LoadEmployees();
 
         }
         private void FillListView()
@@ -34,6 +38,64 @@ namespace Employees_Salary_Calculation_and_Management_Application
         }
 
 
+        string filePath = "employees.json";
+
+        public class Employee
+        {
+            public string ID { get; set; }
+            public string Name { get; set; }
+            public string Position { get; set; }
+            public string Salary { get; set; }
+            public string Department { get; set; }
+            public string HiringDate { get; set; }
+        }
+
+
+        void SaveEmployees()
+        {
+            List<Employee> list = new List<Employee>();
+
+            foreach (ListViewItem item in lvEmployees.Items)
+            {
+                list.Add(new Employee
+                {
+                    ID = item.Text,
+                    Name = item.SubItems[1].Text,
+                    Position = item.SubItems[2].Text,
+                    Salary = item.SubItems[3].Text,
+                    Department = item.SubItems[4].Text,
+                    HiringDate = item.SubItems[5].Text
+                });
+            }
+
+            string json = JsonSerializer.Serialize(list, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+
+
+        void LoadEmployees()
+        {
+            if (!File.Exists(filePath)) return;
+
+            string json = File.ReadAllText(filePath);
+            List<Employee> list = JsonSerializer.Deserialize<List<Employee>>(json);
+
+            lvEmployees.Items.Clear();
+
+            foreach (var emp in list)
+            {
+                ListViewItem item = new ListViewItem(emp.ID);
+                item.SubItems.Add(emp.Name);
+                item.SubItems.Add(emp.Position);
+                item.SubItems.Add(emp.Salary);
+                item.SubItems.Add(emp.Department);
+                item.SubItems.Add(emp.HiringDate);
+
+                lvEmployees.Items.Add(item);
+            }
+
+            FillListView();
+        }
 
 
 
@@ -72,6 +134,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
                 lvEmployees.Items.Add(item);
 
                 FillListView();
+                SaveEmployees();
             }
         }
 
@@ -126,7 +189,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             Form frm1 = new frmDeleteEmployee(lvEmployees);
             frm1.ShowDialog();
-
+            SaveEmployees();
         }
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
@@ -141,6 +204,19 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             this.Close();
         }
+
+
+      
+
+
+
+
+
+
+
+
+
+
     }
 }
 
