@@ -11,6 +11,12 @@ namespace Employees_Salary_Calculation_and_Management_Application
     public partial class frmOperations : Form
     {
         private string _userName;
+
+
+        frmEmployeeManagement EmployeesForm = new frmEmployeeManagement();
+
+
+
         public frmOperations(string userName)
         {
             InitializeComponent();
@@ -43,13 +49,13 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void btnEmployeeManagement_Click(object sender, EventArgs e)
         {
-            Form EmployeesForm = new frmEmployeeManagement();
             EmployeesForm.ShowDialog();
         }
 
         private void btnSalaryCalculation_Click(object sender, EventArgs e)
         {
-
+            Form salary = new frmCalculateSalary(EmployeesForm);
+            salary.ShowDialog();
         }
     }
 }

@@ -14,6 +14,11 @@ namespace Employees_Salary_Calculation_and_Management_Application
 {
     public partial class frmEmployeeManagement : Form
     {
+
+
+      string filePath = "employees.json";
+
+
         public frmEmployeeManagement()
         {
             InitializeComponent();
@@ -24,7 +29,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
             LoadEmployees();
 
         }
-        private void FillListView()
+        private  void FillListView()
         {
             for (int i = 0; i < lvEmployees.Items.Count; i++)
             {
@@ -37,7 +42,6 @@ namespace Employees_Salary_Calculation_and_Management_Application
         }
 
 
-        string filePath = "employees.json";
 
         public class Employee
         {
@@ -50,7 +54,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
         }
 
 
-        void SaveEmployees()
+        public  void SaveEmployees()
         {
             List<Employee> list = new List<Employee>();
 
@@ -72,7 +76,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
         }
 
 
-        void LoadEmployees()
+      public   void LoadEmployees()
         {
             if (!File.Exists(filePath)) return;
 
@@ -101,7 +105,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
 
 
-        bool IsIDExist(string id)
+       bool IsIDExist(string id)
         {
             foreach (ListViewItem item in lvEmployees.Items)
             {
