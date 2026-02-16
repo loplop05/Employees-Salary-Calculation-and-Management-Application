@@ -40,10 +40,10 @@
             label1 = new Label();
             lblID = new Label();
             gbCalculationProccess = new GroupBox();
-            textBox4 = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtOvertime = new TextBox();
+            txtDeduction = new TextBox();
+            txtBonus = new TextBox();
+            txtAbsence = new TextBox();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
@@ -66,7 +66,7 @@
             BoxEmployeeInfoBox.Controls.Add(label1);
             BoxEmployeeInfoBox.Location = new Point(26, 90);
             BoxEmployeeInfoBox.Name = "BoxEmployeeInfoBox";
-            BoxEmployeeInfoBox.Size = new Size(377, 232);
+            BoxEmployeeInfoBox.Size = new Size(400, 232);
             BoxEmployeeInfoBox.TabIndex = 0;
             BoxEmployeeInfoBox.TabStop = false;
             BoxEmployeeInfoBox.Text = "EmployeeInfoBox";
@@ -77,7 +77,7 @@
             txtBoxDepartment.Location = new Point(173, 184);
             txtBoxDepartment.Name = "txtBoxDepartment";
             txtBoxDepartment.ReadOnly = true;
-            txtBoxDepartment.Size = new Size(188, 34);
+            txtBoxDepartment.Size = new Size(221, 34);
             txtBoxDepartment.TabIndex = 9;
             // 
             // label8
@@ -96,7 +96,7 @@
             textBoxBaseSalary.Location = new Point(173, 133);
             textBoxBaseSalary.Name = "textBoxBaseSalary";
             textBoxBaseSalary.ReadOnly = true;
-            textBoxBaseSalary.Size = new Size(188, 34);
+            textBoxBaseSalary.Size = new Size(221, 34);
             textBoxBaseSalary.TabIndex = 7;
             // 
             // textBoxPosition
@@ -105,7 +105,7 @@
             textBoxPosition.Location = new Point(173, 81);
             textBoxPosition.Name = "textBoxPosition";
             textBoxPosition.ReadOnly = true;
-            textBoxPosition.Size = new Size(188, 34);
+            textBoxPosition.Size = new Size(221, 34);
             textBoxPosition.TabIndex = 6;
             // 
             // textBoxFullName
@@ -114,7 +114,7 @@
             textBoxFullName.Location = new Point(173, 33);
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.ReadOnly = true;
-            textBoxFullName.Size = new Size(188, 34);
+            textBoxFullName.Size = new Size(221, 34);
             textBoxFullName.TabIndex = 5;
             // 
             // label3
@@ -159,56 +159,55 @@
             // 
             // gbCalculationProccess
             // 
-            gbCalculationProccess.Controls.Add(textBox4);
-            gbCalculationProccess.Controls.Add(textBox1);
-            gbCalculationProccess.Controls.Add(textBox2);
-            gbCalculationProccess.Controls.Add(textBox3);
+            gbCalculationProccess.Controls.Add(txtOvertime);
+            gbCalculationProccess.Controls.Add(txtDeduction);
+            gbCalculationProccess.Controls.Add(txtBonus);
+            gbCalculationProccess.Controls.Add(txtAbsence);
             gbCalculationProccess.Controls.Add(label4);
             gbCalculationProccess.Controls.Add(label5);
             gbCalculationProccess.Controls.Add(label6);
             gbCalculationProccess.Controls.Add(label7);
             gbCalculationProccess.Location = new Point(26, 369);
             gbCalculationProccess.Name = "gbCalculationProccess";
-            gbCalculationProccess.Size = new Size(361, 291);
+            gbCalculationProccess.Size = new Size(400, 291);
             gbCalculationProccess.TabIndex = 1;
             gbCalculationProccess.TabStop = false;
             gbCalculationProccess.Text = "Salary Calculation ";
             // 
-            // textBox4
+            // txtOvertime
             // 
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(173, 41);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(152, 34);
-            textBox4.TabIndex = 8;
+            txtOvertime.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtOvertime.Location = new Point(173, 41);
+            txtOvertime.Name = "txtOvertime";
+            txtOvertime.Size = new Size(152, 34);
+            txtOvertime.TabIndex = 8;
+            txtOvertime.KeyDown += textBox4_KeyDown;
             // 
-            // textBox1
+            // txtDeduction
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            textBox1.Location = new Point(173, 214);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(152, 34);
-            textBox1.TabIndex = 7;
+            txtDeduction.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            txtDeduction.Location = new Point(173, 215);
+            txtDeduction.Name = "txtDeduction";
+            txtDeduction.Size = new Size(152, 34);
+            txtDeduction.TabIndex = 7;
             // 
-            // textBox2
+            // txtBonus
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(173, 151);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(152, 34);
-            textBox2.TabIndex = 6;
+            txtBonus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBonus.Location = new Point(173, 151);
+            txtBonus.Name = "txtBonus";
+            txtBonus.Size = new Size(152, 34);
+            txtBonus.TabIndex = 6;
+            txtBonus.KeyDown += txtBonus_KeyDown;
             // 
-            // textBox3
+            // txtAbsence
             // 
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(173, 103);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(152, 34);
-            textBox3.TabIndex = 5;
+            txtAbsence.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtAbsence.Location = new Point(173, 103);
+            txtAbsence.Name = "txtAbsence";
+            txtAbsence.Size = new Size(152, 34);
+            txtAbsence.TabIndex = 5;
+            txtAbsence.KeyDown += txtAbsence_KeyDown;
             // 
             // label4
             // 
@@ -224,7 +223,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(19, 154);
+            label5.Location = new Point(40, 154);
             label5.Name = "label5";
             label5.Size = new Size(81, 31);
             label5.TabIndex = 3;
@@ -273,7 +272,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1185, 672);
+            ClientSize = new Size(1185, 680);
             Controls.Add(btnSearch);
             Controls.Add(txtEmpID);
             Controls.Add(gbCalculationProccess);
@@ -281,6 +280,7 @@
             Controls.Add(lblID);
             Name = "frmCalculateSalary";
             Text = "frmCalculateSalary";
+            Load += frmCalculateSalary_Load;
             BoxEmployeeInfoBox.ResumeLayout(false);
             BoxEmployeeInfoBox.PerformLayout();
             gbCalculationProccess.ResumeLayout(false);
@@ -301,10 +301,10 @@
         private Label label3;
         private Label label2;
         private GroupBox gbCalculationProccess;
-        public TextBox textBox4;
-        public TextBox textBox1;
-        public TextBox textBox2;
-        public TextBox textBox3;
+        public TextBox txtOvertime;
+        public TextBox txtDeduction;
+        public TextBox txtBonus;
+        public TextBox txtAbsence;
         private Label label4;
         private Label label5;
         private Label label6;

@@ -34,7 +34,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
                     textBoxPosition.Text = item.SubItems[2].Text;
                     textBoxBaseSalary.Text = item.SubItems[3].Text;
                     txtBoxDepartment.Text = item.SubItems[4].Text;
-
+                    BoxEmployeeInfoBox.Enabled = false;
                     return;
                 }
             }
@@ -45,6 +45,47 @@ namespace Employees_Salary_Calculation_and_Management_Application
         private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchForEmployee();
+            txtOvertime.Focus();
         }
+
+
+        private void frmCalculateSalary_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtAbsence.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtAbsence_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBonus.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBonus_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtDeduction.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+
+
+
+
+
+
     }
 }
