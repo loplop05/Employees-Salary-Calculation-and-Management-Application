@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCalculateSalary));
+            printDocumentSalary = new System.Drawing.Printing.PrintDocument();
             BoxEmployeeInfoBox = new GroupBox();
             txtBoxDepartment = new TextBox();
             label8 = new Label();
@@ -40,6 +41,9 @@
             label1 = new Label();
             lblID = new Label();
             gbCalculationProccess = new GroupBox();
+            lblNetSalary = new Label();
+            lblTtl = new Label();
+            btnCalcuate = new Button();
             txtOvertime = new TextBox();
             txtDeduction = new TextBox();
             txtBonus = new TextBox();
@@ -50,9 +54,16 @@
             label7 = new Label();
             txtEmpID = new TextBox();
             btnSearch = new Button();
+            button1 = new Button();
+            btnSalaryRecipt = new Button();
+            printPreviewDialogSalary = new PrintPreviewDialog();
             BoxEmployeeInfoBox.SuspendLayout();
             gbCalculationProccess.SuspendLayout();
             SuspendLayout();
+            // 
+            // printDocumentSalary
+            // 
+            printDocumentSalary.PrintPage += printDocumentSalary_PrintPage;
             // 
             // BoxEmployeeInfoBox
             // 
@@ -64,9 +75,9 @@
             BoxEmployeeInfoBox.Controls.Add(label3);
             BoxEmployeeInfoBox.Controls.Add(label2);
             BoxEmployeeInfoBox.Controls.Add(label1);
-            BoxEmployeeInfoBox.Location = new Point(26, 90);
+            BoxEmployeeInfoBox.Location = new Point(20, 68);
             BoxEmployeeInfoBox.Name = "BoxEmployeeInfoBox";
-            BoxEmployeeInfoBox.Size = new Size(400, 232);
+            BoxEmployeeInfoBox.Size = new Size(470, 232);
             BoxEmployeeInfoBox.TabIndex = 0;
             BoxEmployeeInfoBox.TabStop = false;
             BoxEmployeeInfoBox.Text = "EmployeeInfoBox";
@@ -77,7 +88,7 @@
             txtBoxDepartment.Location = new Point(173, 184);
             txtBoxDepartment.Name = "txtBoxDepartment";
             txtBoxDepartment.ReadOnly = true;
-            txtBoxDepartment.Size = new Size(221, 34);
+            txtBoxDepartment.Size = new Size(291, 34);
             txtBoxDepartment.TabIndex = 9;
             // 
             // label8
@@ -96,7 +107,7 @@
             textBoxBaseSalary.Location = new Point(173, 133);
             textBoxBaseSalary.Name = "textBoxBaseSalary";
             textBoxBaseSalary.ReadOnly = true;
-            textBoxBaseSalary.Size = new Size(221, 34);
+            textBoxBaseSalary.Size = new Size(291, 34);
             textBoxBaseSalary.TabIndex = 7;
             // 
             // textBoxPosition
@@ -105,7 +116,7 @@
             textBoxPosition.Location = new Point(173, 81);
             textBoxPosition.Name = "textBoxPosition";
             textBoxPosition.ReadOnly = true;
-            textBoxPosition.Size = new Size(221, 34);
+            textBoxPosition.Size = new Size(291, 34);
             textBoxPosition.TabIndex = 6;
             // 
             // textBoxFullName
@@ -114,7 +125,7 @@
             textBoxFullName.Location = new Point(173, 33);
             textBoxFullName.Name = "textBoxFullName";
             textBoxFullName.ReadOnly = true;
-            textBoxFullName.Size = new Size(221, 34);
+            textBoxFullName.Size = new Size(291, 34);
             textBoxFullName.TabIndex = 5;
             // 
             // label3
@@ -159,6 +170,9 @@
             // 
             // gbCalculationProccess
             // 
+            gbCalculationProccess.Controls.Add(lblNetSalary);
+            gbCalculationProccess.Controls.Add(lblTtl);
+            gbCalculationProccess.Controls.Add(btnCalcuate);
             gbCalculationProccess.Controls.Add(txtOvertime);
             gbCalculationProccess.Controls.Add(txtDeduction);
             gbCalculationProccess.Controls.Add(txtBonus);
@@ -167,17 +181,47 @@
             gbCalculationProccess.Controls.Add(label5);
             gbCalculationProccess.Controls.Add(label6);
             gbCalculationProccess.Controls.Add(label7);
-            gbCalculationProccess.Location = new Point(26, 369);
+            gbCalculationProccess.Location = new Point(20, 306);
             gbCalculationProccess.Name = "gbCalculationProccess";
-            gbCalculationProccess.Size = new Size(400, 291);
+            gbCalculationProccess.Size = new Size(470, 350);
             gbCalculationProccess.TabIndex = 1;
             gbCalculationProccess.TabStop = false;
             gbCalculationProccess.Text = "Salary Calculation ";
             // 
+            // lblNetSalary
+            // 
+            lblNetSalary.AutoSize = true;
+            lblNetSalary.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNetSalary.Location = new Point(271, 294);
+            lblNetSalary.Name = "lblNetSalary";
+            lblNetSalary.Size = new Size(113, 38);
+            lblNetSalary.TabIndex = 10;
+            lblNetSalary.Text = "________";
+            // 
+            // lblTtl
+            // 
+            lblTtl.AutoSize = true;
+            lblTtl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTtl.Location = new Point(252, 251);
+            lblTtl.Name = "lblTtl";
+            lblTtl.Size = new Size(165, 41);
+            lblTtl.TabIndex = 9;
+            lblTtl.Text = "Net Salary";
+            // 
+            // btnCalcuate
+            // 
+            btnCalcuate.Location = new Point(98, 253);
+            btnCalcuate.Name = "btnCalcuate";
+            btnCalcuate.Size = new Size(137, 51);
+            btnCalcuate.TabIndex = 8;
+            btnCalcuate.Text = "Calculate";
+            btnCalcuate.UseVisualStyleBackColor = true;
+            btnCalcuate.Click += btnCalcuate_Click;
+            // 
             // txtOvertime
             // 
             txtOvertime.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtOvertime.Location = new Point(173, 41);
+            txtOvertime.Location = new Point(173, 26);
             txtOvertime.Name = "txtOvertime";
             txtOvertime.Size = new Size(152, 34);
             txtOvertime.TabIndex = 8;
@@ -186,15 +230,16 @@
             // txtDeduction
             // 
             txtDeduction.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtDeduction.Location = new Point(173, 215);
+            txtDeduction.Location = new Point(173, 200);
             txtDeduction.Name = "txtDeduction";
             txtDeduction.Size = new Size(152, 34);
             txtDeduction.TabIndex = 7;
+            txtDeduction.KeyDown += txtDeduction_KeyDown;
             // 
             // txtBonus
             // 
             txtBonus.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBonus.Location = new Point(173, 151);
+            txtBonus.Location = new Point(173, 136);
             txtBonus.Name = "txtBonus";
             txtBonus.Size = new Size(152, 34);
             txtBonus.TabIndex = 6;
@@ -203,7 +248,7 @@
             // txtAbsence
             // 
             txtAbsence.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtAbsence.Location = new Point(173, 103);
+            txtAbsence.Location = new Point(173, 88);
             txtAbsence.Name = "txtAbsence";
             txtAbsence.Size = new Size(152, 34);
             txtAbsence.TabIndex = 5;
@@ -213,7 +258,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(19, 215);
+            label4.Location = new Point(19, 200);
             label4.Name = "label4";
             label4.Size = new Size(126, 31);
             label4.TabIndex = 4;
@@ -223,7 +268,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 154);
+            label5.Location = new Point(40, 139);
             label5.Name = "label5";
             label5.Size = new Size(81, 31);
             label5.TabIndex = 3;
@@ -233,7 +278,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(7, 103);
+            label6.Location = new Point(7, 88);
             label6.Name = "label6";
             label6.Size = new Size(160, 31);
             label6.TabIndex = 2;
@@ -243,7 +288,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(19, 41);
+            label7.Location = new Point(19, 26);
             label7.Name = "label7";
             label7.Size = new Size(117, 31);
             label7.TabIndex = 1;
@@ -267,12 +312,44 @@
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(89, 661);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 41);
+            button1.TabIndex = 9;
+            button1.Text = "Exit";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // btnSalaryRecipt
+            // 
+            btnSalaryRecipt.Location = new Point(300, 661);
+            btnSalaryRecipt.Name = "btnSalaryRecipt";
+            btnSalaryRecipt.Size = new Size(137, 42);
+            btnSalaryRecipt.TabIndex = 10;
+            btnSalaryRecipt.Text = "Print Salary Recipt";
+            btnSalaryRecipt.UseVisualStyleBackColor = true;
+            btnSalaryRecipt.Click += btnSalaryRecipt_Click;
+            // 
+            // printPreviewDialogSalary
+            // 
+            printPreviewDialogSalary.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialogSalary.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialogSalary.ClientSize = new Size(400, 300);
+            printPreviewDialogSalary.Enabled = true;
+            printPreviewDialogSalary.Icon = (Icon)resources.GetObject("printPreviewDialogSalary.Icon");
+            printPreviewDialogSalary.Name = "printPreviewDialogSalary";
+            printPreviewDialogSalary.Visible = false;
+            // 
             // frmCalculateSalary
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1185, 680);
+            ClientSize = new Size(527, 706);
+            Controls.Add(btnSalaryRecipt);
+            Controls.Add(button1);
             Controls.Add(btnSearch);
             Controls.Add(txtEmpID);
             Controls.Add(gbCalculationProccess);
@@ -291,7 +368,7 @@
 
         #endregion
 
-        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Drawing.Printing.PrintDocument printDocumentSalary;
         private GroupBox BoxEmployeeInfoBox;
         private Label lblID;
         private Label label1;
@@ -313,5 +390,11 @@
         private Label label8;
         public TextBox txtEmpID;
         private Button btnSearch;
+        private Button btnCalcuate;
+        private Label lblNetSalary;
+        private Label lblTtl;
+        private Button button1;
+        private Button btnSalaryRecipt;
+        private PrintPreviewDialog printPreviewDialogSalary;
     }
 }
