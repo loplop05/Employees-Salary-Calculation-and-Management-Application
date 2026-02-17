@@ -88,6 +88,7 @@
             btnShowEmployees.TabIndex = 2;
             btnShowEmployees.Text = "Analytics && Reports";
             btnShowEmployees.UseVisualStyleBackColor = true;
+            btnShowEmployees.Click += btnShowEmployees_Click;
             // 
             // btnLogOut
             // 
