@@ -12,7 +12,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
     {
         private string _userName;
 
-
+        private ListView lvEmployees;
         frmEmployeeManagement EmployeesForm = new frmEmployeeManagement();
 
 
@@ -60,7 +60,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void btnShowEmployees_Click(object sender, EventArgs e)
         {
-            Form analytics = new frmAnalytics();
+            Form analytics = new frmAnalytics(EmployeesForm.lvEmployees);
             analytics.ShowDialog();
         }
     }
