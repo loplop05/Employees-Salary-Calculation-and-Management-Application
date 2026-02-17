@@ -18,11 +18,12 @@ namespace Employees_Salary_Calculation_and_Management_Application
             InitializeComponent();
             _emp = emp;
             _emp.LoadEmployees();
+            
         }
 
         private void frmCalculateSalary_Load(object sender, EventArgs e)
         {
-
+            txtEmpID.Focus();
         }
 
 
@@ -46,6 +47,14 @@ namespace Employees_Salary_Calculation_and_Management_Application
             MessageBox.Show("Employee not found!");
         }
 
+        private void txtEmpID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             SearchForEmployee();
@@ -255,5 +264,6 @@ namespace Employees_Salary_Calculation_and_Management_Application
             printPreviewDialogSalary.Document = printDocumentSalary;
             printPreviewDialogSalary.ShowDialog();
         }
+
     }
 }

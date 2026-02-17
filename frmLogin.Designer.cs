@@ -60,6 +60,7 @@
             txtbxPassWord.Size = new Size(259, 27);
             txtbxPassWord.TabIndex = 1;
             txtbxPassWord.Tag = "0000";
+            txtbxPassWord.KeyDown += txtbxPassWord_KeyDown;
             // 
             // txtbxUserName
             // 
@@ -70,6 +71,7 @@
             txtbxUserName.Size = new Size(259, 27);
             txtbxUserName.TabIndex = 0;
             txtbxUserName.Tag = "admin";
+            txtbxUserName.KeyDown += txtbxUserName_KeyDown;
             // 
             // label3
             // 
@@ -112,6 +114,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1106, 640);
             Controls.Add(LoginBtn);
             Controls.Add(txtbxPassWord);
@@ -119,9 +122,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            IsMdiContainer = true;
             Name = "frmLogin";
             Text = "frmLogin";
+            Load += frmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

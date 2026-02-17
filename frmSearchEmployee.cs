@@ -12,12 +12,12 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             InitializeComponent();
             lvEmployees = list;
+            textBoxIDforSearch.Focus();
         }
 
         //Search Employee
         private void frmSearchEmployee_Load(object sender, EventArgs e)
         {
-            textBoxIDforSearch.Focus();
         }
 
         // Search method
@@ -83,6 +83,26 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             if (e.KeyCode == Keys.Enter)
                 SearchEmployee();
+        }
+
+        private void frmSearchEmployee_Shown(object sender, EventArgs e)
+        {
+            textBoxIDforSearch.Focus();
+        }
+
+        private void textBoxIDforSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void textBoxIDforSearch_KeyDown_1(object sender, KeyEventArgs e)
+        {
+          
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnSearch.Focus();
+                    e.SuppressKeyPress = true;
+                }
         }
     }
 }

@@ -59,6 +59,8 @@
             textBoxIDforSearch.Name = "textBoxIDforSearch";
             textBoxIDforSearch.Size = new Size(225, 27);
             textBoxIDforSearch.TabIndex = 2;
+            textBoxIDforSearch.KeyDown += textBoxIDforSearch_KeyDown_1;
+            textBoxIDforSearch.KeyPress += textBoxIDforSearch_KeyPress;
             // 
             // frmSearchEmployee
             // 
@@ -71,6 +73,7 @@
             Name = "frmSearchEmployee";
             Text = "frmSearchEmployee";
             Load += frmSearchEmployee_Load;
+            Shown += frmSearchEmployee_Shown;
             ResumeLayout(false);
             PerformLayout();
         }

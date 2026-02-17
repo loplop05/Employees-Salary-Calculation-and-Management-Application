@@ -108,6 +108,7 @@
             textBoxID.Name = "textBoxID";
             textBoxID.Size = new Size(190, 27);
             textBoxID.TabIndex = 5;
+            textBoxID.KeyDown += textBoxID_KeyDown;
             // 
             // textBoxName
             // 
@@ -115,6 +116,7 @@
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(190, 27);
             textBoxName.TabIndex = 6;
+            textBoxName.KeyDown += textBoxName_KeyDown;
             // 
             // txtBoxBaseSalary
             // 
@@ -128,7 +130,7 @@
             // cbPosition
             // 
             cbPosition.FormattingEnabled = true;
-            cbPosition.Items.AddRange(new object[] { "Sales ", "Customer Service", "Call Center", "Cashier", "Acountant", "Junior Sales Supervisor", "Senior Sales Supervisor", "ShowRoom Manager", "" });
+            cbPosition.Items.AddRange(new object[] { "Sales ", "Customer Service", "Call Center", "Cashier", "Accountant", "Junior Sales Supervisor", "Senior Sales Supervisor", "ShowRoom Manager" });
             cbPosition.Location = new Point(103, 219);
             cbPosition.Name = "cbPosition";
             cbPosition.Size = new Size(199, 28);
@@ -183,6 +185,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(395, 485);
             Controls.Add(btnCancel);
             Controls.Add(btnSaveEmployeeInfo);
@@ -199,6 +202,7 @@
             Controls.Add(label1);
             Name = "frmAddEmployee";
             Text = "frmAddEmployee";
+            Load += frmAddEmployee_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

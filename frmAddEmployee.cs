@@ -15,6 +15,12 @@ namespace Employees_Salary_Calculation_and_Management_Application
             InitializeComponent();
         }
 
+        private void frmAddEmployee_Load(object sender, EventArgs e)
+        {
+            textBoxID.Focus();
+        }
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -22,32 +28,41 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void cbPosition_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Dictionary<string, (string salary, string dept)> positions =
-       new Dictionary<string, (string, string)>()
-   {
-    {"senior sales supervisor", ("500","Operations")},
-    {"junior sales supervisor", ("400","Operations")},
-    {"sales", ("300","Operations")},
-    {"customer service", ("300","Operations")},
-    {"call center", ("300","Operations")},
-    {"cashier", ("300","Operations")},
-    {"accountant", ("600","HQ Office")},
-    {"showroom manager", ("1000","Operations")}
-   };
+            if (cbPosition.SelectedItem == null) return;
 
-            string selected = cbPosition.SelectedItem.ToString().Trim().ToLower();
+            string position = cbPosition.SelectedItem.ToString().Trim().ToLower();
 
-            if (positions.ContainsKey(selected))
+            if (position == "senior sales supervisor")
             {
-                txtBoxBaseSalary.Text = positions[selected].salary;
-                textBoxDepartment.Text = positions[selected].dept;
+                txtBoxBaseSalary.Text = "500";
+                textBoxDepartment.Text = "Operations";
+            }
+            else if (position == "junior sales supervisor")
+            {
+                txtBoxBaseSalary.Text = "400";
+                textBoxDepartment.Text = "Operations";
+            }
+            else if (position == "sales" || position == "customer service"
+                     || position == "call center" || position == "cashier")
+            {
+                txtBoxBaseSalary.Text = "300";
+                textBoxDepartment.Text = "Operations";
+            }
+            else if (position == "accountant")
+            {
+                txtBoxBaseSalary.Text = "600";
+                textBoxDepartment.Text = "HQ Office";
+            }
+            else if (position == "showroom manager")
+            {
+                txtBoxBaseSalary.Text = "1000";
+                textBoxDepartment.Text = "Operations";
             }
             else
             {
                 MessageBox.Show("Other position selected!");
             }
         }
-
 
 
         private void btnSaveEmployeeInfo_Click(object sender, EventArgs e)
@@ -64,9 +79,31 @@ namespace Employees_Salary_Calculation_and_Management_Application
             this.Close(); // close AddEmployee form
         }
 
+
+
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void textBoxID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBoxName.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void textBoxName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cbPosition.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
+
     }
 }

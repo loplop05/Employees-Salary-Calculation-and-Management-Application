@@ -86,7 +86,7 @@
             btnShowEmployees.Name = "btnShowEmployees";
             btnShowEmployees.Size = new Size(239, 109);
             btnShowEmployees.TabIndex = 2;
-            btnShowEmployees.Text = "Show Employees";
+            btnShowEmployees.Text = "Analytics && Reports";
             btnShowEmployees.UseVisualStyleBackColor = true;
             // 
             // btnLogOut
@@ -105,6 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1179, 672);
             Controls.Add(btnLogOut);
             Controls.Add(btnShowEmployees);

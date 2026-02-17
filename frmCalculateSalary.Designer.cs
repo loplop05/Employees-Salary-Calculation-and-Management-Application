@@ -162,7 +162,7 @@
             // 
             lblID.AutoSize = true;
             lblID.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblID.Location = new Point(26, 28);
+            lblID.Location = new Point(27, 23);
             lblID.Name = "lblID";
             lblID.Size = new Size(148, 31);
             lblID.TabIndex = 1;
@@ -297,14 +297,15 @@
             // txtEmpID
             // 
             txtEmpID.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtEmpID.Location = new Point(180, 28);
+            txtEmpID.Location = new Point(181, 23);
             txtEmpID.Name = "txtEmpID";
             txtEmpID.Size = new Size(188, 34);
             txtEmpID.TabIndex = 6;
+            txtEmpID.KeyDown += txtEmpID_KeyDown;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(396, 30);
+            btnSearch.Location = new Point(397, 25);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(94, 29);
             btnSearch.TabIndex = 7;
