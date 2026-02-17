@@ -60,7 +60,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void btnShowEmployees_Click(object sender, EventArgs e)
         {
-            Form analytics = new frmAnalytics(EmployeesForm.lvEmployees);
+            Form analytics = new frmAnalytics(EmployeesForm.lvEmployees,EmployeesForm);
             analytics.ShowDialog();
         }
     }

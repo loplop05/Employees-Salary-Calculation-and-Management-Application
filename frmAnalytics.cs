@@ -7,12 +7,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
     public partial class frmAnalytics : Form
     {
         private ListView lvEmployees;
-        
 
-        public frmAnalytics(ListView list)
+        public frmEmployeeManagement _emp;
+
+        public frmAnalytics(ListView list, frmEmployeeManagement emp)
         {
             InitializeComponent();
             lvEmployees = list;
+            _emp = emp;
+            _emp.LoadEmployees();
         }
 
         private void frmAnalytics_Load(object sender, EventArgs e)
@@ -129,7 +132,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
         
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
-            
+           
         }
     }
 }
