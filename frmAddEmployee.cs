@@ -105,5 +105,13 @@ namespace Employees_Salary_Calculation_and_Management_Application
             }
         }
 
+        private void cbPosition_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSaveEmployeeInfo.Focus();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

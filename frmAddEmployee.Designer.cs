@@ -136,6 +136,7 @@
             cbPosition.Size = new Size(199, 28);
             cbPosition.TabIndex = 8;
             cbPosition.SelectedIndexChanged += cbPosition_SelectedIndexChanged;
+            cbPosition.KeyDown += cbPosition_KeyDown;
             // 
             // label6
             // 
