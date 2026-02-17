@@ -14,5 +14,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
