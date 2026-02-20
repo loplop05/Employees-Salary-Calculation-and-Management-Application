@@ -130,7 +130,7 @@
             // cbPosition
             // 
             cbPosition.FormattingEnabled = true;
-            cbPosition.Items.AddRange(new object[] { "Sales ", "Customer Service", "Call Center", "Cashier", "Accountant", "Junior Sales Supervisor", "Senior Sales Supervisor", "ShowRoom Manager" });
+            cbPosition.Items.AddRange(new object[] { "Sales ", "Customer Service", "Call Center", "Cashier", "Accountant", "hr officer", "Junior Sales Supervisor", "Senior Sales Supervisor", "ShowRoom Manager" });
             cbPosition.Location = new Point(103, 219);
             cbPosition.Name = "cbPosition";
             cbPosition.Size = new Size(199, 28);

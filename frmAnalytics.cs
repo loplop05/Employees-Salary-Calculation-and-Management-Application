@@ -99,7 +99,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
             label3.Text = averageSalary.ToString("0.00");
             label4.Text = maxSalary.ToString("0.00");
             label5.Text = minSalary.ToString("0.00");
-            label6.Text = topEmployee;
+          
 
             // 🔹 Department table
             lvDeptStats.Items.Clear();

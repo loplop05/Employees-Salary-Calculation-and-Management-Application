@@ -76,20 +76,20 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Stencil", 25.8000011F, FontStyle.Bold);
-            label3.Location = new Point(412, 316);
+            label3.Font = new Font("Sitka Banner", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(425, 319);
             label3.Name = "label3";
-            label3.Size = new Size(259, 52);
+            label3.Size = new Size(234, 62);
             label3.TabIndex = 8;
             label3.Text = "PASSWORD";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Stencil", 25.8000011F, FontStyle.Bold);
-            label2.Location = new Point(412, 186);
+            label2.Font = new Font("Sitka Banner", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(422, 183);
             label2.Name = "label2";
-            label2.Size = new Size(259, 52);
+            label2.Size = new Size(237, 62);
             label2.TabIndex = 7;
             label2.Text = "USERNAME";
             // 

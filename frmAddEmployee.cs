@@ -58,6 +58,11 @@ namespace Employees_Salary_Calculation_and_Management_Application
                 txtBoxBaseSalary.Text = "1000";
                 textBoxDepartment.Text = "Operations";
             }
+            else if (position == "hr officer")
+            {
+                txtBoxBaseSalary.Text = "740";
+                textBoxDepartment.Text = "HQ Office";
+            }
             else
             {
                 MessageBox.Show("Other position selected!");
