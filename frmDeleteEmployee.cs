@@ -75,5 +75,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             DeleteEmployee();
         }
+
+        private void textBoxIDforDelete_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnSearchForDelete.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
     }
 }

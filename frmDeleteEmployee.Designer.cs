@@ -31,6 +31,7 @@
             label1 = new Label();
             textBoxIDforDelete = new TextBox();
             btnSearchForDelete = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -50,6 +51,7 @@
             textBoxIDforDelete.Size = new Size(223, 27);
             textBoxIDforDelete.TabIndex = 1;
             textBoxIDforDelete.TextChanged += textBoxIDforDelete_TextChanged;
+            textBoxIDforDelete.KeyDown += textBoxIDforDelete_KeyDown;
             // 
             // btnSearchForDelete
             // 
@@ -61,12 +63,22 @@
             btnSearchForDelete.UseVisualStyleBackColor = true;
             btnSearchForDelete.Click += btnSearchForDelete_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(150, 267);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "Search";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // frmDeleteEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(btnSearchForDelete);
             Controls.Add(textBoxIDforDelete);
             Controls.Add(label1);
@@ -82,5 +94,6 @@
         private Label label1;
         private TextBox textBoxIDforDelete;
         private Button btnSearchForDelete;
+        private Button button1;
     }
 }
