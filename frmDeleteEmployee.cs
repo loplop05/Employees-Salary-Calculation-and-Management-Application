@@ -78,12 +78,17 @@ namespace Employees_Salary_Calculation_and_Management_Application
 
         private void textBoxIDforDelete_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btnSearchForDelete.Focus();
                 e.SuppressKeyPress = true;
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

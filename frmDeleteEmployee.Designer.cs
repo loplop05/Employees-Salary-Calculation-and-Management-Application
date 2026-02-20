@@ -65,12 +65,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(150, 267);
+            button1.Location = new Point(694, 12);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 3;
-            button1.Text = "Search";
+            button1.Text = "Exit";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // frmDeleteEmployee
             // 
