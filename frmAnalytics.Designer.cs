@@ -33,7 +33,6 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
             lvDeptStats = new ListView();
             Department = new ColumnHeader();
             Employees = new ColumnHeader();
@@ -48,7 +47,6 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            label12 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -96,17 +94,9 @@
             label5.TabIndex = 4;
             label5.Text = "Lowest Salary";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(812, 71);
-            label6.Name = "label6";
-            label6.Size = new Size(118, 20);
-            label6.TabIndex = 5;
-            label6.Text = "Total Employees";
-            // 
             // lvDeptStats
             // 
+            lvDeptStats.BackColor = SystemColors.InactiveCaption;
             lvDeptStats.Columns.AddRange(new ColumnHeader[] { Department, Employees, colTotalSalary });
             lvDeptStats.FullRowSelect = true;
             lvDeptStats.GridLines = true;
@@ -134,6 +124,7 @@
             // 
             // lvPositionStats
             // 
+            lvPositionStats.BackColor = SystemColors.InactiveCaption;
             lvPositionStats.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
             lvPositionStats.FullRowSelect = true;
             lvPositionStats.GridLines = true;
@@ -219,21 +210,12 @@
             label11.TabIndex = 14;
             label11.Text = "Lowest Salary";
             // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(812, 41);
-            label12.Name = "label12";
-            label12.Size = new Size(118, 20);
-            label12.TabIndex = 15;
-            label12.Text = "Total Employees";
-            // 
             // frmAnalytics
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1222, 719);
-            Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -243,7 +225,6 @@
             Controls.Add(btnRefresh);
             Controls.Add(lvPositionStats);
             Controls.Add(lvDeptStats);
-            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -263,7 +244,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
         private ListView lvDeptStats;
         private ColumnHeader Department;
         private ColumnHeader Employees;
@@ -278,6 +258,5 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private Label label12;
     }
 }

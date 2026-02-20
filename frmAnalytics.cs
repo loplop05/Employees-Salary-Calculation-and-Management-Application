@@ -33,7 +33,7 @@ namespace Employees_Salary_Calculation_and_Management_Application
             this.Close();
         }
 
-      
+
         void CalculateAnalytics()
         {
             if (lvEmployees.Items.Count == 0)
@@ -129,10 +129,15 @@ namespace Employees_Salary_Calculation_and_Management_Application
         {
             this.Close();
         }
-        
+
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
